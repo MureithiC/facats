@@ -2,40 +2,57 @@ document.addEventListener('DOMContentLoaded', () => {
     let userName = ''; // Variable to store the user's name
 
     // Function to set the user's name
-    function setName(event) {
-        event.preventDefault(); // Prevent form submission
-        userName = document.getElementById('user-name').value.trim();
-        if (userName === '') {
-            alert('Please enter your name.');
-            return;
-        }
-        // Hide the name form and display the main content
-        document.getElementById('name-form').style.display = 'none';
-        document.querySelector('.fact-details').style.display = 'block';
+    // Function to set the user's name
+function setName(event) {
+    event.preventDefault(); // Prevent form submission
+    userName = document.getElementById('user-name').value.trim();
+    if (userName === '') {
+        alert('Please enter your name.');
+        return;
     }
+    // Hide the name form and display the main content
+    document.getElementById('name-form').style.display = 'none';
+    document.querySelector('.fact-details').style.display = 'block';
+
+    // Display greeting message and random fact
+    document.getElementById('greeting').textContent = `Hello, ${userName}! Here is a random fact for you:`;
+    displayRandomCatFact();
+}
+
 
     // Event listener for submitting the name form
     document.getElementById('name-form').addEventListener('submit', setName);
 
-    // Function to fetch a random cat fact and image
-    async function fetchRandomFactAndImage() {
+    // Function to fetch a random cat image
+    async function fetchRandomCatImage() {
         try {
-            const response = await fetch('https://cat-fact.herokuapp.com/facts/random');
-            const data = await response.json();
-            const author = data.user ? data.user.name : 'Unknown';
-            return { fact: data.text, author: author, image: data.user ? data.user.photo : '' };
+            const catImage = document.getElementById('cat-image');
+            catImage.src = 'https://cataas.com/cat'; // Fetch a random cat image
         } catch (error) {
-            console.error('Error fetching random cat fact:', error);
-            return { fact: 'Unable to fetch random cat fact at the moment.', author: 'Unknown', image: '' };
+            console.error('Error fetching random cat image:', error);
         }
     }
 
-    // Function to display the random cat fact with author and image
-    async function displayRandomFact() {
-        const { fact, author, image } = await fetchRandomFactAndImage();
-        document.getElementById('fact-description').textContent = `Fact: ${fact}`;
-        document.getElementById('author-name').textContent = `Author: ${author}`;
-        document.getElementById('cat-image').src = image;
+    // Function to fetch a random cat fact
+    async function fetchRandomCatFact() {
+        try {
+            const response = await fetch('https://cat-fact.herokuapp.com/facts/random?animal_type=cat');
+            const data = await response.json();
+            return data.text; // Return the random cat fact
+        } catch (error) {
+            console.error('Error fetching random cat fact:', error);
+            return 'Unable to fetch random cat fact at the moment.';
+        }
+    }
+
+    // Function to display a random cat fact
+    async function displayRandomCatFact() {
+        try {
+            const randomFact = await fetchRandomCatFact();
+            document.getElementById('fact-description').textContent = `Fact: ${randomFact}`;
+        } catch (error) {
+            console.error('Error displaying random cat fact:', error);
+        }
     }
 
     // Function to handle adding a comment
@@ -70,11 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('comment-form').addEventListener('submit', addComment);
 
     // Event listeners for reacting to the fact
-    document.getElementById('like-icon').addEventListener('click', () => reactToFact('like'));
+    document.getElementById('squint-icon').addEventListener('click', () => reactToFact('squint'));
     document.getElementById('love-icon').addEventListener('click', () => reactToFact('love'));
     document.getElementById('laugh-icon').addEventListener('click', () => reactToFact('laugh'));
-    document.getElementById('thumbs-up-icon').addEventListener('click', () => reactToFact('thumbs up'));
+    document.getElementById('thumbs-up-icon').addEventListener('click', () => reactToFact('thumbs-up'));
 
-    // Display a random cat fact when the page loads
-    displayRandomFact();
+    // Display a random cat image and fact when the page loads
+    fetchRandomCatImage();
+    displayRandomCatFact();
 });

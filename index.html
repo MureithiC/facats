@@ -15,6 +15,11 @@
     <script defer type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>Welcome to FACATS!</h1>
+  </header>
+  
     <!-- Main content section -->
     <main>
           <!-- Form for setting the user's name -->
@@ -27,41 +32,40 @@
 
         <!-- Container for displaying Fact details -->
         <div class="fact-details">
-          <!-- Get image with placeholder (replaced by actual image. To generate by AI -->
-          <img id="cat-image" alt="Fact Image" src="src/test-image.png" />
+          <p id="greeting"></p>
+          <img id="cat-image" alt="Fact Image" src="src/test-simage.png" />
           <p>
             <em id="fact-description">Fact</em>
           </p>
   
-          <!-- Heading for comments -->
-          <h3>Comments From Users</h3>
-          <ul id="comment-list">
-            <!-- Comments will be displayed here -->
-          </ul>
-          
-          <!-- Form for adding new comment -->
-          <form id="comment-form">
+          <!-- Icons for reactions (Likes, Loves, Laughs, Thumbs up) -->
+          <div id="reaction-icons">
+            <i id="squint-icon" class="fa-solid fa-face-grin-squint-tears" style="color: #FFD43B;"></i>
+            <span id="squint-count">0</span>
+            <i id="love-icon" class="fa-solid fa-heart" style="color: #ff0000;"></i>
+            <span id="love-count">0</span>
+            <i id="laugh-icon" class="fa-regular fa-face-grin-tears" style="color: #FFD43B;"></i>
+            <span id="laugh-count">0</span>
+            <i id="thumbs-up-icon" class="fa-regular fa-thumbs-up" style="color: #FFD43B;"></i>
+            <span id="thumbs-up-count">0</span>
+        </div>
+    </main>
+
+    <!-- Comment section outside of the fact-details container -->
+    <section id="comments-section">
+        <!-- Heading for comments -->
+        <h3>Comments From Users</h3>
+        <!-- Form for adding new comment -->
+        <form id="comment-form">
             <label class="title-text">Enter your Comment:</label>
             <textarea id="comment"></textarea>
             <button type="submit">Submit</button>
-          </form>
-
-          <!-- Icons for reactions (Likes, Loves, Laughs, Thumbs up) -->
-          <div id="reaction-icons">
-            <i class="fa-regular fa-thumbs-up" style="color: #FFD43B;"></i>
-            <i class="fa-regular fa-heart" style="color: #ff0000;"></i>
-            <i id="laugh-icon" class="far fa-laugh-squint"></i>
-            <i id="thumbs-up-icon" class="far fa-grin-alt"></i>
-          </div>
-          
-          <!-- Display counts of reactions -->
-          <div id="reaction-counts">
-            <p>Likes: <span id="like-count">0</span></p>
-            <p>Loves: <span id="love-count">0</span></p>
-            <p>Laughs: <span id="laugh-count">0</span></p>
-            <p>Thumbs Up: <span id="thumbs-up-count">0</span></p>
-          </div>
-    </main>
+        </form>
+        <!-- Comments list -->
+        <ul id="comment-list">
+            <!-- Comments will be displayed here -->
+        </ul>
+    </section>
 
     <!-- Footer section with copyright information -->
     <footer id="footer-details">
@@ -70,11 +74,3 @@
 
 </body>
 </html>
-
-Set the name and hide the field after filling in the name.
-Function to like and increase like.
-function to add comment
-Function to display the random cat fact.
-Function to gtreET THE USER and use the greeting to Display the fact
-Get author from the response and display it
-Get cat-image 
