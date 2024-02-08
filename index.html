@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>FACATS</title>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    <!-- Script -->
+    <script defer type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+    <!-- Main content section -->
+    <main>
+          <!-- Form for setting the user's name -->
+          <form id="name-form">
+            <label class="title-text">Set Your Name:</label>
+            <input type="text" id="user-name" required>
+            <button type="submit">Set Name</button>
+          </form>
+        </div>
+
+        <!-- Container for displaying Fact details -->
+        <div class="fact-details">
+          <!-- Get image with placeholder (replaced by actual image. To generate by AI -->
+          <img id="cat-image" alt="Fact Image" src="src/test-image.png" />
+          <p>
+            <em id="fact-description">Fact</em>
+          </p>
+  
+          <!-- Heading for comments -->
+          <h3>Comments From Users</h3>
+          <ul id="comment-list">
+            <!-- Comments will be displayed here -->
+          </ul>
+          
+          <!-- Form for adding new comment -->
+          <form id="comment-form">
+            <label class="title-text">Enter your Comment:</label>
+            <textarea id="comment"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+
+          <!-- Icons for reactions (Likes, Loves, Laughs, Thumbs up) -->
+          <div id="reaction-icons">
+            <i class="fa-regular fa-thumbs-up" style="color: #FFD43B;"></i>
+            <i class="fa-regular fa-heart" style="color: #ff0000;"></i>
+            <i id="laugh-icon" class="far fa-laugh-squint"></i>
+            <i id="thumbs-up-icon" class="far fa-grin-alt"></i>
+          </div>
+          
+          <!-- Display counts of reactions -->
+          <div id="reaction-counts">
+            <p>Likes: <span id="like-count">0</span></p>
+            <p>Loves: <span id="love-count">0</span></p>
+            <p>Laughs: <span id="laugh-count">0</span></p>
+            <p>Thumbs Up: <span id="thumbs-up-count">0</span></p>
+          </div>
+    </main>
+
+    <!-- Footer section with copyright information -->
+    <footer id="footer-details">
+        &copy; 2024 Cyrus Mureithi
+    </footer>
+
+</body>
+</html>
+
+Set the name and hide the field after filling in the name.
+Function to like and increase like.
+function to add comment
+Function to display the random cat fact.
+Function to gtreET THE USER and use the greeting to Display the fact
+Get author from the response and display it
+Get cat-image 
