@@ -1,98 +1,90 @@
-/* Center the facts section and set its width to 800 pixels */
+
 .fact-details {
-    position: relative; /* Add position relative */
+    position: relative; 
     width: 800px;
     height: auto;
-    margin: 0 auto; /* Center the facts section horizontally */
-    padding: 20px; /* Add padding for spacing */
-    border: 1px solid #ccc; /* Add a border */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-    border-radius: 10px; /* Add border radius for rounded corners */
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
 }
 
 /* Header style */
 .header {
-    text-align: center; /* Center align the text */
-    margin-bottom: 20px; /* Add margin at the bottom */
+    text-align: center; 
+    margin-bottom: 20px; 
 }
 
 /* Comment section style */
 #comments-section {
-    width: 800px; /* Set the width to 800 pixels */
-    margin: 0 auto; /* Center the comments section horizontally */
-    padding: 20px; /* Add padding for spacing */
-    border: 1px solid #ccc; /* Add a border */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-    border-radius: 10px; /* Add border radius for rounded corners */
+    width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
 }
 
 #comment-list {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none; 
     padding: 0;
 }
 
 .comment {
-    border-bottom: 1px solid #ccc; /* Add border between comments */
-    padding: 10px 0; /* Add padding above and below each comment */
+    border-bottom: 1px solid #ccc; 
+    padding: 10px 0;
 }
 
 .comment:last-child {
-    border-bottom: none; /* Remove border from the last comment */
+    border-bottom: none; 
 }
 
 /* Styles for input and button in comment form */
 #comment-form textarea {
-    width: calc(100% - 20px); /* Calculate width for textarea */
-    padding: 10px; /* Add padding */
-    margin-bottom: 10px; /* Add margin at the bottom */
-}
-
-#comment-form button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text color */
-    padding: 10px 20px; /* Add padding */
-    border: none; /* Remove border */
-    cursor: pointer; /* Add pointer cursor */
+    width: calc(100% - 20px); 
+    padding: 10px; 
+    margin-bottom: 10px; 
 }
 
 #comment-form button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049; 
 }
 
 /* Styling for the "Set Your Name" form */
 #name-form {
-    width: 800px; /* Set the width to 800 pixels */
-    margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Add padding for spacing */
-    border: 1px solid #ccc; /* Add a border */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-    text-align: center; /* Center the text */
-    background-color: #f9f9f9; /* Light gray background */
-    border-radius: 10px; /* Add border radius for rounded corners */
+    width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
 }
 
 #user-name {
-    width: calc(100% - 40px); /* Calculate width for input */
-    padding: 10px; /* Add padding */
-    margin-bottom: 10px; /* Add margin at the bottom */
+    width: calc(100% - 40px); 
+    padding: 10px; 
+    margin-bottom: 10px; 
 }
 
-#name-form button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text color */
-    padding: 10px 20px; /* Add padding */
-    border: none; /* Remove border */
-    cursor: pointer; /* Add pointer cursor */
-}
-
-#name-form button:hover {
-    background-color: #45a049; /* Darker green on hover */
+ button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none; 
+    cursor: pointer; 
 }
 
 #cat-image {
-    width: 150px; /* Adjust the width as needed */
-    height: 150px; /* Maintain aspect ratio */
-    border-radius: 10%; /* Make the image rounded */
+    width: 150px; 
+    height: 150px; 
+    border-radius: 10%; 
+}
+
+#reload-quote{
+    background-color: #4CAF50;
 }
 
 #reaction-icons {
@@ -103,13 +95,18 @@
     align-items: center;
 }
 
+#reaction-icons span {
+    margin-left: auto;
+    margin-right: 5px;
+}
+
 #reaction-icons i {
-    font-size: 24px; /* Adjust the size of the reaction icons */
-    margin-right: 10px; /* Add some space between each reaction icon */
+    font-size: 24px; 
+    margin-right: 10px; 
     cursor: pointer;
-    transition: transform 0.3s ease; /* Add smooth transition on hover */
+    transition: transform 0.3s ease;
 }
 
 #reaction-icons i:hover {
-    transform: scale(1.2); /* Increase the size of the icon on hover */
+    transform: scale(1.2); 
 }

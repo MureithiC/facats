@@ -2,23 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let userName = ''; // Variable to store the user's name
 
     // Function to set the user's name
-    // Function to set the user's name
-function setName(event) {
-    event.preventDefault(); // Prevent form submission
-    userName = document.getElementById('user-name').value.trim();
-    if (userName === '') {
-        alert('Please enter your name.');
-        return;
+    function setName(event) {
+        event.preventDefault(); // Prevent form submission
+        userName = document.getElementById('user-name').value.trim();
+        if (userName === '') {
+            alert('Please enter your name.');
+            return;
+        }
+        // Hide the name form and display the main content
+        document.getElementById('name-form').style.display = 'none';
+        document.querySelector('.fact-details').style.display = 'block';
+
+        // Display greeting message and random fact
+        document.getElementById('greeting').textContent = `Hello, ${userName}! Here is a random fact for you:`;
+        displayRandomCatFact();
     }
-    // Hide the name form and display the main content
-    document.getElementById('name-form').style.display = 'none';
-    document.querySelector('.fact-details').style.display = 'block';
-
-    // Display greeting message and random fact
-    document.getElementById('greeting').textContent = `Hello, ${userName}! Here is a random fact for you:`;
-    displayRandomCatFact();
-}
-
 
     // Event listener for submitting the name form
     document.getElementById('name-form').addEventListener('submit', setName);
@@ -45,17 +43,47 @@ function setName(event) {
         }
     }
 
-    // Function to display a random cat fact
-    async function displayRandomCatFact() {
-        try {
-            const randomFact = await fetchRandomCatFact();
-            document.getElementById('fact-description').textContent = `Fact: ${randomFact}`;
-        } catch (error) {
-            console.error('Error displaying random cat fact:', error);
-        }
-    }
+    // Function to display a random cat fact and reload comments
+async function displayRandomCatFact() {
+    try {
+        // Clear existing comments
+        const commentList = document.getElementById('comment-list');
+        commentList.innerHTML = '';
 
-    // Function to handle adding a comment
+        // Fetch new random cat fact
+        const randomFact = await fetchRandomCatFact();
+        document.getElementById('fact-description').textContent = `Fact: ${randomFact}`;
+
+        // Fetch new comments
+        await fetchComments();
+    } catch (error) {
+        console.error('Error displaying random cat fact:', error);
+    }
+}
+// Function to fetch comments
+async function fetchComments() {
+    try {
+        const response = await fetch('https://your-comments-api-url');
+        const data = await response.json();
+
+        // Display comments in the comment list
+        const commentList = document.getElementById('comment-list');
+        data.forEach(comment => {
+            const li = document.createElement('li');
+            li.textContent = `${comment.author}: ${comment.text}`;
+            commentList.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+    }
+}
+
+// Function to reload the quote
+    document.getElementById('reload-quote').addEventListener('click', () => {
+        displayRandomCatFact();
+    });
+
+// Function to handle adding a comment
     function addComment(event) {
         event.preventDefault(); // Prevent form submission
         const commentInput = document.getElementById('comment');
